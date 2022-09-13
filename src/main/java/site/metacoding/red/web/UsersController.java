@@ -1,21 +1,27 @@
 package site.metacoding.red.web;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import site.metacoding.red.domain.users.Users;
-import site.metacoding.red.domain.users.UsersDao;
+import site.metacoding.red.service.UsersService;
 
 @RequiredArgsConstructor
-@RestController
+@Controller
 public class UsersController {
-
-	private final UsersDao usersDao;
 	
-	@GetMapping("/users/{id}")
-	public Users getUsers(@PathVariable Integer id) {
-		return usersDao.findById(id);
+	private final UsersService usersService;
+	
+	@GetMapping("/joinForm")
+	public String joinForm() {
+		return "users/joinForm";
 	}
+	
+	@GetMapping("/loginForm")
+	public String loginForm() {
+		return "users/joinForm";
+	}
+
+	
+	
 }

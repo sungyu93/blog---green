@@ -15,30 +15,25 @@ GRANT ALL PRIVILEGES ON greendb.* TO 'green'@'%';
 
 ### 테이블 생성
 ```sql
+USE greendb;
+
 create table users(
-    id number primary key,
-    username varchar2(20),
-    password varchar2(20),
-    email varchar2(50),
+    id int primary key auto_increment,
+    username varchar(20),
+    password varchar(20),
+    email varchar(50),
     createdAt TIMESTAMP
 );
 
-CREATE SEQUENCE users_seq 
-INCREMENT BY 1 
-START WITH 1;
-
+DROP TABLE boards;
 create table boards(
-    id number primary key,
-    title varchar2(150),
-    content clob,
-    usersId number,
-    createdAt TIMESTAMP,
-    CONSTRAINT fk_users_id FOREIGN KEY(usersId) REFERENCES users(id)
+    id int primary key auto_increment,
+    title varchar(150),
+    content longtext,
+    usersId int,
+    createdAt TIMESTAMP
 );
 
-CREATE SEQUENCE boards_seq 
-INCREMENT BY 1 
-START WITH 1;
 ```
 
 ### 더미데이터 추가
