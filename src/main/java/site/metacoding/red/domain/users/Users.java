@@ -23,7 +23,7 @@ public class Users {
 	}
 	
 	public void update(UpdateDto updateDto) {
-		this.password = password;
+		this.password = updateDto.getPassword;
 		this.email = email;
 	}
 	
